@@ -16,7 +16,6 @@ class Students(models.Model):
     gender = models.CharField(max_length=10)
 
     class Meta:
-        managed = False
         db_table = 'students'
 
 
@@ -28,3 +27,15 @@ class Book(models.Model):
 
     class Meta:
         db_table = 'books'
+
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    quantity = models.IntegerField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
